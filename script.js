@@ -6,11 +6,21 @@ const getRestaurants = async () => {
     let data = await response.json();
 
     data.restaurants.slice(0,10).forEach(restaurant => {
-        const name = `<li>${restaurant.name}</li>`;
+        const cuisines = restaurant.cuisines.map(cuisine => cuisine.name).join(",  ");
 
-        document.querySelector('div').insertAdjacentHTML('beforeend', name);
+        const details = `
+            <div>
+                <h2>${restaurant.name}</h2>
+                <h4>Rating: ${getStars(restaurant.rating.starRating)} (${restaurant.rating.starRating})</h4>
+                <p>Cuisines: ${cuisines}</p>
+                <p>Address: ${restaurant.address.firstLine}, ${restaurant.address.city}</p>
+            </div>
+        `;
 
+        document.querySelector('#restaurants-container').insertAdjacentHTML('beforeend', details);
     });
 }
+const getStars = (rating) => {
+    return '⭐'.repeat(Math.round(rating));
+}
 getRestaurants();
-
