@@ -9,11 +9,11 @@ const getRestaurants = async () => {
         const cuisines = restaurant.cuisines.map(cuisine => cuisine.name).join(",  ");
 
         const details = `
-            <div>
-                <h2>${restaurant.name}</h2>
-                <h4>Rating: ${getStars(restaurant.rating.starRating)} (${restaurant.rating.starRating})</h4>
-                <p>Cuisines: ${cuisines}</p>
-                <p>Address: ${restaurant.address.firstLine}, ${restaurant.address.city}</p>
+            <div class = "details">
+                <h2 class="rest-name">${restaurant.name}</h2>
+                <h4 class = "rest-rating">Rating: ${getStars(restaurant.rating.starRating)} (${restaurant.rating.starRating})</h4>
+                <p class = "rest-cuisines">Cuisines: ${cuisines}</p>
+                <p class = "rest-adress">Address: ${restaurant.address.firstLine}, ${restaurant.address.city}</p>
             </div>
         `;
 
