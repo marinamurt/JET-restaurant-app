@@ -12,8 +12,8 @@ const getRestaurants = async () => {
             <div class = "details">
                 <h2 class="rest-name">${restaurant.name}</h2>
                 <h4 class = "rest-rating">Rating: ${getStars(restaurant.rating.starRating)} (${restaurant.rating.starRating})</h4>
-                <p class = "rest-cuisines">Cuisines: ${cuisines}</p>
-                <p class = "rest-adress">Address: ${restaurant.address.firstLine}, ${restaurant.address.city}</p>
+                <p class = "rest-cuisines"><b>Cuisines:</b> ${cuisines}</p>
+                <p class = "rest-adress"><b>Address:</b> ${restaurant.address.firstLine}, ${restaurant.address.city}</p>
             </div>
         `;
 
