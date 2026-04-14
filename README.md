@@ -51,7 +51,7 @@ npm test
 - At the beggining i got some CORS errors in the browser and used a browser CORS extension to view the web app instead of other options.
 - It was not fully clear whether a backend proxy was expected to handle API requests and avoid browser CORS restrictions.
 - Was assumed that i could use other data points from the restaurant object. Not only the 4 that were required.
-- Was unsure if unit tests were required or not since it the assignment pdf it was not specified.
+- Was unsure if unit tests were required or not since in the assignment pdf it was not specified.
 
 ## Improvements I Would Make
 
