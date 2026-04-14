@@ -1,5 +1,5 @@
 body {
-    font-family: Roboto Condensed, sans-serif;
+    font-family: Fredoka, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,7 @@ body {
 
 
 
-
+/*Styling for the title*/
 h1 {
     text-align: center;
     font-size: 34px;
@@ -27,7 +27,7 @@ h1:hover {
     transform: translateY(-4px);
 
 }
-
+/*Styling for the restaurant cards*/
 #restaurants-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -35,7 +35,7 @@ h1:hover {
     margin: 10px auto;
     max-width: 1000px;
 
-    height: 80vh;
+    height: 75vh;
     overflow-y: auto;
     padding-right: 10px;
 
@@ -51,7 +51,7 @@ h1:hover {
 
 .details {
     position: relative;
-    background-color: rgba(145, 70, 10, 0.19);
+    background-color: rgb(0, 0, 0);
     backdrop-filter: blur(15px);
     border-radius: 16px;
     padding: 20px;
@@ -83,8 +83,9 @@ h1:hover {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
 
+/*Styling for the restaurant card elements*/
 .rest-name {
-    font-size: 23px;
+    font-size: 25px;
     font-weight: 700;
     margin-bottom: 10px;
     color: #ffff;
@@ -107,10 +108,14 @@ h1:hover {
 .rest-rating {
     font-weight: 600;
 }
-.rest-rating b,
+
 .rest-cuisines b,
 .rest-adress b {
-    color: #ffd166;
+    color: #ff7a00;
+}
+
+.rest-cuisines{
+    font-size: 16px;
 }
 
 
@@ -127,6 +132,74 @@ h1:hover {
     background: rgba(255,255,255,0.9);
     padding: 4px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.rest-deals {
+    position: relative;
+    padding-right: 70px;
+    color: #ff7a00;
+}
+
+/*Styling for the search bar*/
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 20px;
+    padding: 10px 14px;
+
+    background: rgba(0, 0, 0, 0.73);
+    backdrop-filter: blur(10px);
+
+    border-radius: 14px;
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+
+.search-bar label {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.68);
+}
+
+
+.search-bar input {
+    flex: 1;
+    font: inherit;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+
+    background: rgba(255,255,255,0.9);
+}
+
+
+.search-bar button {
+    background: #ff7a00;
+    border: none;
+
+    border-radius: 10px;
+    padding: 10px 16px;
+
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+.search-bar button:hover {
+    background: #ff8c1a;
+    transform: translateY(-2px);
 }
 
 
