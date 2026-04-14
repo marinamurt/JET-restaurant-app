@@ -1,11 +1,11 @@
 //below the base API endpoint url
 const baseLink = "https://uk.api.just-eat.io/discovery/uk/restaurants/enriched/bypostcode/{postcode}"
 
-//function to fetch the: restsaurant objects and the relevant data endpoints from the API
+//function to fetch the: restaurant objects and the relevant data endpoints from the API
 const getRestaurants = async (postcode) => {
     const link = baseLink.replace("{postcode}", postcode);
 
-    response = await fetch(link);
+    const response = await fetch(link);
 
     let data = await response.json();
     // clear previous results for the search
@@ -32,8 +32,6 @@ const getRestaurants = async (postcode) => {
     });
 }
 
-//fetch function called here
-getRestaurants();
 
 //function to get the rating in form of stars (with rounding)
 const getStars = (rating) => {
@@ -41,30 +39,34 @@ const getStars = (rating) => {
 }
 
 
+if (typeof document !== "undefined") {
+// Code for the search bar -- event listener to do the search
+    document.addEventListener("DOMContentLoaded", () => {
 
-// Code for the serch bar -- event listener to do the search
-document.addEventListener("DOMContentLoaded", () => {
-
-    const input = document.getElementById("postcode-input");
-    const button = document.getElementById("search-button");
-    // for click
-    button.addEventListener("click", () => {
-        const postcode = input.value.trim(); //remove accidental spaces
-        if (postcode) {
-            getRestaurants(postcode);
-        }
-    });
-
-    //for Enter
-    input.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-            const postcode = input.value.trim();
+        const input = document.getElementById("postcode-input");
+        const button = document.getElementById("search-button");
+        // for click
+        button.addEventListener("click", async () => {
+            const postcode = input.value.trim(); //remove accidental spaces
             if (postcode) {
-                getRestaurants(postcode);
+                 await getRestaurants(postcode);
             }
-        }
+        });
+
+        //for Enter
+        input.addEventListener("keypress",  async (e) => {
+            if (e.key === "Enter") {
+                const postcode = input.value.trim();
+                if (postcode) {
+                   await getRestaurants(postcode);
+                }
+            }
+        });
+
+
     });
+}
 
-
-
-});
+if (typeof module !== "undefined") {
+    module.exports = { getRestaurants, getStars };
+}
