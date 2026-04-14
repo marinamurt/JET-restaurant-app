@@ -7,9 +7,10 @@ const getRestaurants = async () => {
 
     data.restaurants.slice(0,10).forEach(restaurant => {
         const cuisines = restaurant.cuisines.map(cuisine => cuisine.name).join(",  ");
-
+        const logo = restaurant.logoUrl;
         const details = `
             <div class = "details">
+            <img class="rest-logo" src=${logo} alt="">
                 <h2 class="rest-name">${restaurant.name}</h2>
                 <h4 class = "rest-rating">Rating: ${getStars(restaurant.rating.starRating)} (${restaurant.rating.starRating})</h4>
                 <p class = "rest-cuisines"><b>Cuisines:</b> ${cuisines}</p>
